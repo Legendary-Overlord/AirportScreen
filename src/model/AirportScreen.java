@@ -15,6 +15,11 @@ public class AirportScreen {
 	public void generateRandomFlights(int numberOfFlights) {
 		//when a new list is generated, the current one is deleted
 		
+		for (int i=0;i<numberOfFlights;i++){
+			
+			
+		}
+		
 	}
 	
 	

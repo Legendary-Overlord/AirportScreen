@@ -2,15 +2,16 @@ package model;
 
 import java.util.Comparator;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 public class Flight implements Comparable, Comparator{
 
-	private Date departureDate;
+	private GregorianCalendar departureDate;
 	private String airline;
 	private String flightNumber;
 	private String destiny;
 	private int gate;
-	public Flight(Date departureDate, String airline, String flightNumber, String destiny,
+	public Flight(GregorianCalendar departureDate, String airline, String flightNumber, String destiny,
 			int gate) {
 		super();
 		this.departureDate = departureDate;
@@ -19,7 +20,13 @@ public class Flight implements Comparable, Comparator{
 		this.destiny = destiny;
 		this.gate = gate;
 	}
-	
+	public GregorianCalendar getDepartureDate() {
+		return departureDate;
+	}
+
+	public void setDepartureDate(GregorianCalendar departureDate) {
+		this.departureDate = departureDate;
+	}
 	public String getAirline() {
 		return airline;
 	}
@@ -54,4 +61,6 @@ public class Flight implements Comparable, Comparator{
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+	
 }
