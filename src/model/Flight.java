@@ -4,7 +4,7 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
-public class Flight implements Comparable, Comparator{
+public class Flight implements Comparable<Flight>, Comparator<Flight>{
 
 	private GregorianCalendar departureDate;
 	private String airline;
@@ -51,15 +51,15 @@ public class Flight implements Comparable, Comparator{
 	public void setFlightNumber(int flightNumber) {
 		this.flightNumber = flightNumber;
 	}
+	//compare by destiny
 	@Override
-	public int compare(Object arg0, Object arg1) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int compare(Flight fl1, Flight fl2) {
+		return ((Integer.parseInt(fl1.getDestiny())<Integer.parseInt(fl2.getDestiny()))?-1:(Integer.parseInt(fl1.getDestiny())>Integer.parseInt(fl2.getDestiny()))?1:0);
 	}
+	//compare by airline
 	@Override
-	public int compareTo(Object arg0) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int compareTo(Flight fl) {
+		return ((Integer.parseInt(airline)<Integer.parseInt(fl.getAirline()))?-1:(Integer.parseInt(airline)>Integer.parseInt(fl.getAirline()))?1:0);
 	}
 
 	

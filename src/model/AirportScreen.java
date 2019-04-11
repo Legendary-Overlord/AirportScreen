@@ -4,14 +4,13 @@ import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.List;
 
-public class AirportScreen {
+public class AirportScreen{
 
 	List<Flight> flights;
 	String[] airlines = {"Avianca", "Lufthansa", "American", "EasyJet","Bayerische Airlines","Emirates","Delta"};
 	String[] destinies = {"Sao Pablo","Rio de Janeiro","Miami","Bogota","Washington","Moscow","Berlin","Munchen","Frankfurt","Madrid","Ibiza","Cancun","London"};
 	public AirportScreen() {
 		flights= new ArrayList<Flight>();
-		
 	}
 	public List<Flight> getFlights() {
 		return flights;
@@ -87,6 +86,46 @@ public class AirportScreen {
                greater than key, to one position ahead 
                of their current position */
             while (j >= 0 && flights.get(j).getFlightNumber() > key.getFlightNumber()) { 
+            	flights.set(j+1, flights.get(j));
+                j = j - 1; 
+            } 
+            flights.set(j+1, key);
+        } 
+    }
+	public void sortByAirline() { 
+        int n = flights.size(); 
+        for (int i = 1; i < n; ++i) { 
+            Flight key = flights.get(i); 
+            int j = i - 1; 
+            while (j >= 0 && key.compareTo(flights.get(j))==-1) { 
+            	flights.set(j+1, flights.get(j));
+                j = j - 1; 
+            } 
+            flights.set(j+1, key);
+        } 
+    }
+	public void sortByDestiny() { 
+        int n = flights.size(); 
+        for (int i = 1; i < n; ++i) { 
+            Flight key = flights.get(i); 
+            int j = i - 1; 
+            while (j >= 0 && key.compare(key, flights.get(j))==-1) { 
+            	flights.set(j+1, flights.get(j));
+                j = j - 1; 
+            } 
+            flights.set(j+1, key);
+        } 
+    }
+	public void sortByDate() { 
+        int n = flights.size(); 
+        for (int i = 1; i < n; ++i) { 
+            Flight key = flights.get(i); 
+            int j = i - 1; 
+  
+            /* Move elements of arr[0..i-1], that are 
+               greater than key, to one position ahead 
+               of their current position */
+            while (j >= 0 && flights.get(j).getDepartureDate().getTimeInMillis() > key.getDepartureDate().getTimeInMillis()) { 
             	flights.set(j+1, flights.get(j));
                 j = j - 1; 
             } 
