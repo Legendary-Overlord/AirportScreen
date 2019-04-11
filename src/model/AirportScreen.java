@@ -1,6 +1,7 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
 
@@ -36,26 +37,19 @@ public class AirportScreen{
 	public int randomNum(int inferiorLimit, int superiorLimit) {
 		return (int) Math.floor(Math.random()*superiorLimit + inferiorLimit);
 	}
-	
-	
-	//flightNumber sort by "Name"
-	//Date objects has YYYY/MM/DD and HH:MM:SS capabilities(AM/PM)
-	//Airline sort by name
-	//destiny sort by name
-	
 	//bubble sort
 	public void sortByHour() {
 		//organize by hour
         int n = flights.size(); 
         for (int i = 0; i < n-1; i++) 
             for (int j = 0; j < n-i-1; j++) 
-                if (flights.get(j).getDepartureDate().HOUR_OF_DAY > flights.get(j+1).getDepartureDate().HOUR_OF_DAY)  { 
+                if (flights.get(j).getDepartureDate().get(Calendar.HOUR_OF_DAY)>flights.get(j+1).getDepartureDate().get(Calendar.HOUR_OF_DAY))  { 
                     Flight temp = flights.get(j); 
                     flights.set(j, flights.get(j+1)); 
                     flights.set(j+1, temp); 
                 } 
     } 
-	//seletion sort
+	//selection sort
 	public void sortByGate() { 
         int n = flights.size(); 
   
@@ -121,11 +115,10 @@ public class AirportScreen{
         for (int i = 1; i < n; ++i) { 
             Flight key = flights.get(i); 
             int j = i - 1; 
-  
             /* Move elements of arr[0..i-1], that are 
                greater than key, to one position ahead 
                of their current position */
-            while (j >= 0 && flights.get(j).getDepartureDate().compareTo(key.getDepartureDate())==1 ) { 
+            while (j >= 0 && flights.get(j).getDepartureDate().getTime().after(key.getDepartureDate().getTime())) { 
             	flights.set(j+1, flights.get(j));
                 j = j - 1; 
             } 
@@ -156,16 +149,15 @@ public class AirportScreen{
         // not present 
         return -1; 
     }
+	//secuential search
 	public int searchAirline(String air) {
+		sortByAirline();
 		int x=0;boolean loop=true;
 		for (int i=0;i<flights.size()&&loop;i++) {
-			if (flights.get(i).equals(air))
-				x=i;
+			if (flights.get(i).getAirline().equals(air)) {
+				x=i;loop=false;
+			}
 		}
 		return x;
 	}
-	
-	
-	
-	
 }

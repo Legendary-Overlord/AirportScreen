@@ -54,12 +54,15 @@ public class Flight implements Comparable<Flight>, Comparator<Flight>{
 	//compare by destiny
 	@Override
 	public int compare(Flight fl1, Flight fl2) {
-		return ((Integer.parseInt(fl1.getDestiny())<Integer.parseInt(fl2.getDestiny()))?-1:(Integer.parseInt(fl1.getDestiny())>Integer.parseInt(fl2.getDestiny()))?1:0);
+		int fl1d = (int) fl1.getDestiny().charAt(0);
+		int fl2d = (int) fl2.getDestiny().charAt(0);
+		
+		return (fl1d<fl2d)?-1:(fl1d>fl2d)?1:0;
 	}
 	//compare by airline
 	@Override
 	public int compareTo(Flight fl) {
-		return (Integer.parseInt(airline)<Integer.parseInt(fl.getAirline()))?-1:(Integer.parseInt(airline)>Integer.parseInt(fl.getAirline()))?1:0;
+		return ((int)airline.charAt(0)<(int)fl.getAirline().charAt(0))?-1:((int)airline.charAt(0)>(int)fl.getAirline().charAt(0))?1:0;
 	}
 
 	

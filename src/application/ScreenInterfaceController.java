@@ -36,10 +36,8 @@ public class ScreenInterfaceController {
 		as.sortByHour();
 		updateItems();
 	}
-
     @FXML
     private ListView<String> flightListView;
-
     @FXML
     void findFlight(ActionEvent event) {
     	List<String> choices = new ArrayList<String>();
@@ -78,9 +76,7 @@ public class ScreenInterfaceController {
     	    	break;
     	    }
     	}
-
     }
-
     @FXML
     void generate(ActionEvent event) {
     	TextInputDialog input = new TextInputDialog("Number of flights to generate");
@@ -93,37 +89,31 @@ public class ScreenInterfaceController {
     			as.generateRandomFlights(Integer.parseInt(result.get()));updateItems();
     	}
     }
-
     @FXML
     void sortByAirline(ActionEvent event) {
     	as.sortByAirline();
     	updateItems();
     }
-
     @FXML
     void sortByDate(ActionEvent event) {
     	as.sortByDate();
     	updateItems();
     }
-
     @FXML
     void sortByDestiny(ActionEvent event) {
     	as.sortByDestiny();
     	updateItems();
     }
-
     @FXML
     void sortByFlightNumber(ActionEvent event) {
     	as.sortByFlightNum();
     	updateItems();
     }
-
     @FXML
     void sortByGate(ActionEvent event) {
     	as.sortByFlightNum();
     	updateItems();
     }
-
     @FXML
     void sortByHour(ActionEvent event) {
     	as.sortByHour();
