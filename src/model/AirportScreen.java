@@ -1,16 +1,29 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AirportScreen {
 
-	
 	List<Flight> flights;
+	public AirportScreen() {
+		flights= new ArrayList<Flight>();
+	}
 	
 	
 	
+	public void generateRandomFlights(int numberOfFlights) {
+		//when a new list is generated, the current one is deleted
+		
+	}
 	
 	
+	//flightNumber sort by "Name"
+	//Date objects has YYYY/MM/DD and HH:MM:SS capabilities(AM/PM)
+	//Airline sort by name
+	//destiny sort by name
+	
+
 	public void bubbleSort(int arr[]) 
     { 
         int n = arr.length; 

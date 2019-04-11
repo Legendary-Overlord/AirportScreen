@@ -1,37 +1,25 @@
 package model;
 
 import java.util.Comparator;
+import java.util.Date;
 
 public class Flight implements Comparable, Comparator{
 
-	private String departureDate;
-	private String departureTime;
+	private Date departureDate;
 	private String airline;
 	private String flightNumber;
 	private String destiny;
 	private int gate;
-	public Flight(String departureDate, String departureTime, String airline, String flightNumber, String destiny,
+	public Flight(Date departureDate, String airline, String flightNumber, String destiny,
 			int gate) {
 		super();
 		this.departureDate = departureDate;
-		this.departureTime = departureTime;
 		this.airline = airline;
 		this.flightNumber = flightNumber;
 		this.destiny = destiny;
 		this.gate = gate;
 	}
-	public String getDepartureDate() {
-		return departureDate;
-	}
-	public void setDepartureDate(String departureDate) {
-		this.departureDate = departureDate;
-	}
-	public String getDepartureTime() {
-		return departureTime;
-	}
-	public void setDepartureTime(String departureTime) {
-		this.departureTime = departureTime;
-	}
+	
 	public String getAirline() {
 		return airline;
 	}
