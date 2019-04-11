@@ -15,6 +15,11 @@ public class ScreenInterfaceController {
     }
 
     @FXML
+    void generate(ActionEvent event) {
+
+    }
+
+    @FXML
     void sortByAirline(ActionEvent event) {
 
     }
@@ -45,3 +50,4 @@ public class ScreenInterfaceController {
     }
 
 }
+

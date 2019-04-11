@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="743.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ScreenInterfaceController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="807.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ScreenInterfaceController">
    <center>
       <ListView fx:id="flightListView" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
    </center>
@@ -26,6 +26,7 @@
             <Button mnemonicParsing="false" onAction="#sortByDestiny" text="Sort by Destiny" />
             <Button mnemonicParsing="false" onAction="#sortByGate" text="Sort by Gate" />
             <Button mnemonicParsing="false" onAction="#findFlight" text="Find Flight" />
+            <Button mnemonicParsing="false" onAction="#generate" text="Generate" />
          </children>
       </HBox>
    </bottom>
