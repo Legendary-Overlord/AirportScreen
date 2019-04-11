@@ -11,7 +11,7 @@
       <ListView fx:id="flightListView" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
    </center>
    <bottom>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="8.0" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER" spacing="8.0" BorderPane.alignment="CENTER">
          <padding>
             <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
          </padding>

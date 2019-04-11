@@ -7,7 +7,7 @@ import java.util.List;
 public class AirportScreen{
 
 	List<Flight> flights;
-	String[] airlines = {"Avianca", "Lufthansa", "American", "EasyJet","Bayerische Airlines","Emirates","Delta"};
+	String[] airlines = {"Avianca", "Lufthansa", "American", "EasyJet","Bayerische","Emirates","Delta"};
 	String[] destinies = {"Sao Pablo","Rio de Janeiro","Miami","Bogota","Washington","Moscow","Berlin","Munchen","Frankfurt","Madrid","Ibiza","Cancun","London"};
 	public AirportScreen() {
 		flights= new ArrayList<Flight>();
@@ -125,7 +125,7 @@ public class AirportScreen{
             /* Move elements of arr[0..i-1], that are 
                greater than key, to one position ahead 
                of their current position */
-            while (j >= 0 && flights.get(j).getDepartureDate().getTimeInMillis() > key.getDepartureDate().getTimeInMillis()) { 
+            while (j >= 0 && flights.get(j).getDepartureDate().compareTo(key.getDepartureDate())==1 ) { 
             	flights.set(j+1, flights.get(j));
                 j = j - 1; 
             } 

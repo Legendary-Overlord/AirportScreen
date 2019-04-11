@@ -59,7 +59,7 @@ public class Flight implements Comparable<Flight>, Comparator<Flight>{
 	//compare by airline
 	@Override
 	public int compareTo(Flight fl) {
-		return ((Integer.parseInt(airline)<Integer.parseInt(fl.getAirline()))?-1:(Integer.parseInt(airline)>Integer.parseInt(fl.getAirline()))?1:0);
+		return (Integer.parseInt(airline)<Integer.parseInt(fl.getAirline()))?-1:(Integer.parseInt(airline)>Integer.parseInt(fl.getAirline()))?1:0;
 	}
 
 	
