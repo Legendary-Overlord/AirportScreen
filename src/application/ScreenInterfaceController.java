@@ -76,7 +76,7 @@ public class ScreenInterfaceController {
     		Flight fl = as.getFlights().get(i);
     		String flight = fl.getAirline()+" \t\t "+fl.getFlightNumber()+" \t\t "+fl.getDepartureDate().get(GregorianCalendar.HOUR)+fl.getDepartureDate().get(GregorianCalendar.AM_PM)
     				+" \t\t "+date.format(fl.getDepartureDate().getTime())+" \t\t "+fl.getDestiny()+" \t\t "+fl.getGate();
-    				//"Airline " \t\t " FL# \t\t Hour \t\t Date \t\t Destiny \t\t Gate";
+    		items.add(flight);
     	}
     	flightListView.setItems(items);
     }
