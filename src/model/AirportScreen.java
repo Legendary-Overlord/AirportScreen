@@ -132,6 +132,38 @@ public class AirportScreen{
             flights.set(j+1, key);
         } 
     }
+	//flight number binary search
+	public int searchFlightNum(int x) { 
+		sortByFlightNum();
+        int l = 0, r = flights.size() - 1; 
+        while (l <= r) { 
+            int m = l + (r - l) / 2; 
+  
+            // Check if x is present at mid 
+            if (flights.get(m).getFlightNumber() == x) 
+                return m; 
+  
+            // If x greater, ignore left half 
+            if (flights.get(m).getFlightNumber() < x) 
+                l = m + 1; 
+  
+            // If x is smaller, ignore right half 
+            else
+                r = m - 1; 
+        } 
+  
+        // if we reach here, then element was 
+        // not present 
+        return -1; 
+    }
+	public int searchAirline(String air) {
+		int x=0;boolean loop=true;
+		for (int i=0;i<flights.size()&&loop;i++) {
+			if (flights.get(i).equals(air))
+				x=i;
+		}
+		return x;
+	}
 	
 	
 	
