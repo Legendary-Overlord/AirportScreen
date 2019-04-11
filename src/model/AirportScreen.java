@@ -1,25 +1,39 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 public class AirportScreen {
 
 	List<Flight> flights;
+	String[] airlines = {"Avianca", "Lufthansa", "American", "EasyJet","Bayerische Airlines","Emirates","Delta"};
+	String[] destinies = {"Sao Pablo","Rio de Janeiro","Miami","Bogota","Washington","Moscow","Berlin","Munchen","Frankfurt","Madrid","Ibiza","Cancun","London"};
 	public AirportScreen() {
 		flights= new ArrayList<Flight>();
+		
 	}
 	
 	
 	
 	public void generateRandomFlights(int numberOfFlights) {
 		//when a new list is generated, the current one is deleted
-		
+		flights.clear();
 		for (int i=0;i<numberOfFlights;i++){
-			
-			
+			int month = randomNum(0,12);
+			int day = randomNum(0,31);
+			int hour = randomNum(0,24);
+			int minute = randomNum(0,60);
+			GregorianCalendar date = new GregorianCalendar(2019,month,day,hour,minute,0);
+			int airline = randomNum(0,airlines.length);
+			int destiny = randomNum(0,destinies.length);
+			int gate = randomNum(1,30);
+			flights.add(new Flight(date,airlines[airline],i,destinies[destiny],gate));
 		}
 		
+	}
+	public int randomNum(int inferiorLimit, int superiorLimit) {
+		return (int) Math.floor(Math.random()*superiorLimit + inferiorLimit);
 	}
 	
 	

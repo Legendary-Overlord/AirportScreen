@@ -8,10 +8,10 @@ public class Flight implements Comparable, Comparator{
 
 	private GregorianCalendar departureDate;
 	private String airline;
-	private String flightNumber;
+	private int flightNumber;
 	private String destiny;
 	private int gate;
-	public Flight(GregorianCalendar departureDate, String airline, String flightNumber, String destiny,
+	public Flight(GregorianCalendar departureDate, String airline, int flightNumber, String destiny,
 			int gate) {
 		super();
 		this.departureDate = departureDate;
@@ -33,12 +33,6 @@ public class Flight implements Comparable, Comparator{
 	public void setAirline(String airline) {
 		this.airline = airline;
 	}
-	public String getFlightNumber() {
-		return flightNumber;
-	}
-	public void setFlightNumber(String flightNumber) {
-		this.flightNumber = flightNumber;
-	}
 	public String getDestiny() {
 		return destiny;
 	}
@@ -50,6 +44,12 @@ public class Flight implements Comparable, Comparator{
 	}
 	public void setGate(int gate) {
 		this.gate = gate;
+	}
+	public int getFlightNumber() {
+		return flightNumber;
+	}
+	public void setFlightNumber(int flightNumber) {
+		this.flightNumber = flightNumber;
 	}
 	@Override
 	public int compare(Object arg0, Object arg1) {
