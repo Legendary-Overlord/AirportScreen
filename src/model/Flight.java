@@ -13,7 +13,6 @@ public class Flight implements Comparable<Flight>, Comparator<Flight>{
 	private int gate;
 	public Flight(GregorianCalendar departureDate, String airline, int flightNumber, String destiny,
 			int gate) {
-		super();
 		this.departureDate = departureDate;
 		this.airline = airline;
 		this.flightNumber = flightNumber;
@@ -56,7 +55,6 @@ public class Flight implements Comparable<Flight>, Comparator<Flight>{
 	public int compare(Flight fl1, Flight fl2) {
 		int fl1d = (int) fl1.getDestiny().charAt(0);
 		int fl2d = (int) fl2.getDestiny().charAt(0);
-		
 		return (fl1d<fl2d)?-1:(fl1d>fl2d)?1:0;
 	}
 	//compare by airline

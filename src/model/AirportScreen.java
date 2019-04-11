@@ -1,5 +1,10 @@
 package model;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -7,11 +12,42 @@ import java.util.List;
 
 public class AirportScreen{
 
-	List<Flight> flights;
-	String[] airlines = {"Avianca", "Lufthansa", "American", "EasyJet","Bayerische","Emirates","Delta"};
-	String[] destinies = {"Sao Pablo","Rio de Janeiro","Miami","Bogota","Washington","Moscow","Berlin","Munchen","Frankfurt","Madrid","Ibiza","Cancun","London"};
+	private List<Flight> flights;
+	private List<String> airlines;
+	private List<String> destinies;
 	public AirportScreen() {
 		flights= new ArrayList<Flight>();
+		airlines = new ArrayList<String>();
+		destinies= new ArrayList<String>();
+		try {
+			BufferedReader r = new BufferedReader(new FileReader(new File("airlines.txt")));
+			BufferedReader r2 = new BufferedReader(new FileReader(new File("destinies.txt")));
+			String air="";
+			while((air=r.readLine())!=null) {
+				System.out.println(air);
+				airlines.add(air);
+			}
+			String dest="";
+			while((dest=r2.readLine())!=null) {
+				System.out.println(dest);
+				destinies.add(dest);
+			}
+		} catch (FileNotFoundException e) {
+			File c = new File("airlines.txt");
+			File c2 = new File("airlines.txt");
+				try {
+					if(!c.exists())
+						c.createNewFile();
+					if(!c2.exists())
+						c2.createNewFile();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}	
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	public List<Flight> getFlights() {
 		return flights;
@@ -28,10 +64,10 @@ public class AirportScreen{
 			int hour = randomNum(0,24);
 			int minute = randomNum(0,60);
 			GregorianCalendar date = new GregorianCalendar(2019,month,day,hour,minute,0);
-			int airline = randomNum(0,airlines.length);
-			int destiny = randomNum(0,destinies.length);
+			int airline = randomNum(0,airlines.size());
+			int destiny = randomNum(0,destinies.size());
 			int gate = randomNum(1,30);
-			flights.add(new Flight(date,airlines[airline],i,destinies[destiny],gate));
+			flights.add(new Flight(date,airlines.get(airline),i,destinies.get(destiny),gate));
 		}
 	}
 	public int randomNum(int inferiorLimit, int superiorLimit) {
