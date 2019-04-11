@@ -20,11 +20,11 @@ import model.Flight;
 
 public class ScreenInterfaceController {
 	
-	AirportScreen as;
-	ObservableList<String> items;
-	String titles;
-	SimpleDateFormat date;
-	SimpleDateFormat hour;
+	private AirportScreen as;
+	private ObservableList<String> items;
+	private String titles;
+	private SimpleDateFormat date;
+	private SimpleDateFormat hour;
 	
 	public void initialize() {
 		as = new AirportScreen();
