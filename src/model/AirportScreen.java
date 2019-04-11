@@ -13,9 +13,12 @@ public class AirportScreen {
 		flights= new ArrayList<Flight>();
 		
 	}
-	
-	
-	
+	public List<Flight> getFlights() {
+		return flights;
+	}
+	public void setFlights(List<Flight> flights) {
+		this.flights = flights;
+	}
 	public void generateRandomFlights(int numberOfFlights) {
 		//when a new list is generated, the current one is deleted
 		flights.clear();
@@ -30,7 +33,6 @@ public class AirportScreen {
 			int gate = randomNum(1,30);
 			flights.add(new Flight(date,airlines[airline],i,destinies[destiny],gate));
 		}
-		
 	}
 	public int randomNum(int inferiorLimit, int superiorLimit) {
 		return (int) Math.floor(Math.random()*superiorLimit + inferiorLimit);
@@ -42,24 +44,21 @@ public class AirportScreen {
 	//Airline sort by name
 	//destiny sort by name
 	
-
-	public void bubbleSort(int arr[]) 
-    { 
-        int n = arr.length; 
+	//bubble sort
+	public void sortByHour() {
+		//organize by hour
+        int n = flights.size(); 
         for (int i = 0; i < n-1; i++) 
             for (int j = 0; j < n-i-1; j++) 
-                if (arr[j] > arr[j+1]) 
-                { 
-                    // swap arr[j+1] and arr[i] 
-                    int temp = arr[j]; 
-                    arr[j] = arr[j+1]; 
-                    arr[j+1] = temp; 
+                if (flights.get(j).getDepartureDate().HOUR_OF_DAY > flights.get(j+1).getDepartureDate().HOUR_OF_DAY)  { 
+                    Flight temp = flights.get(j); 
+                    flights.set(j, flights.get(j+1)); 
+                    flights.set(j+1, temp); 
                 } 
     } 
-	
-	public void selectionSort(int arr[]) 
-    { 
-        int n = arr.length; 
+	//seletion sort
+	public void sortByGate() { 
+        int n = flights.size(); 
   
         // One by one move boundary of unsorted subarray 
         for (int i = 0; i < n-1; i++) 
@@ -67,32 +66,31 @@ public class AirportScreen {
             // Find the minimum element in unsorted array 
             int min_idx = i; 
             for (int j = i+1; j < n; j++) 
-                if (arr[j] < arr[min_idx]) 
+                if (flights.get(j).getGate() < flights.get(min_idx).getGate()) 
                     min_idx = j; 
   
             // Swap the found minimum element with the first 
             // element 
-            int temp = arr[min_idx]; 
-            arr[min_idx] = arr[i]; 
-            arr[i] = temp; 
+            Flight temp = flights.get(min_idx);
+            flights.set(min_idx, flights.get(i));
+            flights.set(i, temp);
         } 
     }
-	
-	public void sort(int arr[]) 
-    { 
-        int n = arr.length; 
+	//insertion sort
+	public void sortByFlightNum() { 
+        int n = flights.size(); 
         for (int i = 1; i < n; ++i) { 
-            int key = arr[i]; 
+            Flight key = flights.get(i); 
             int j = i - 1; 
   
             /* Move elements of arr[0..i-1], that are 
                greater than key, to one position ahead 
                of their current position */
-            while (j >= 0 && arr[j] > key) { 
-                arr[j + 1] = arr[j]; 
+            while (j >= 0 && flights.get(j).getFlightNumber() > key.getFlightNumber()) { 
+            	flights.set(j+1, flights.get(j));
                 j = j - 1; 
             } 
-            arr[j + 1] = key; 
+            flights.set(j+1, key);
         } 
     }
 	
